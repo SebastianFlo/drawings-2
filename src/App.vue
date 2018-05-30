@@ -6,7 +6,7 @@
             <router-link to="/about">About</router-link>
         </div>
         <router-view/>
-        
+
         <footer id="footer" class="footer">
             <div class="col-md-4 col-md-offset-4">
                 <a target="_blank"

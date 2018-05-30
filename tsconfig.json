@@ -1,31 +1,37 @@
 {
-  "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "allowSyntheticDefaultImports": true,
-    "sourceMap": true,
-    "baseUrl": ".",
-    "types": [
-      "node"    ],
-    "paths": {
-      "@/*": [
-        "src/*"
-      ]
-    }
-  },
-  "include": [
-    "src/**/*.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue",
-    "tests/**/*.ts",
-    "tests/**/*.tsx"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "compilerOptions": {
+        "target": "esnext",
+        "module": "esnext",
+        "strict": true,
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "allowSyntheticDefaultImports": true,
+        "experimentalDecorators": true,
+        "allowJs": true,
+        "sourceMap": true,
+        "baseUrl": ".",
+        "types": [
+            "node"
+        ],
+        "lib": [
+            "es2017",
+            "dom"
+        ],
+        "paths": {
+            "@/*": [
+                "src/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*.ts",
+        "src/**/*.tsx",
+        "src/**/*.vue",
+        "tests/**/*.ts",
+        "tests/**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
 }
