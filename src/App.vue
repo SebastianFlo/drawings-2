@@ -6,27 +6,19 @@
             <router-link to="/about">About</router-link>
         </div>
         <router-view/>
-
-        <footer class="footer">
-            <div class="container">
-            </div>
-        </footer>
-
-
+        
         <footer id="footer" class="footer">
-            <div class="container">
-                    <div class="col-md-4 col-md-offset-4">
-                        <a target="_blank"
-                            class="col-md-2 col-md-offset-4"
-                            href="http://www.facebook.com/cosmicjs">
-                            <i class="fa fa-facebook-official"></i>
-                        </a>
-                        <a target="_blank"
-                            class="col-md-2"
-                            href="http://www.twitter.com/cosmic_js">
-                            <i class="fa fa-twitter-square"></i>
-                        </a>
-                    </div>
+            <div class="col-md-4 col-md-offset-4">
+                <a target="_blank"
+                    class="col-md-2 col-md-offset-4"
+                    href="http://www.facebook.com/cosmicjs">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+                <a target="_blank"
+                    class="col-md-2"
+                    href="http://www.twitter.com/cosmic_js">
+                    <i class="fa fa-twitter-square"></i>
+                </a>
             </div>
         </footer>
     </div>
