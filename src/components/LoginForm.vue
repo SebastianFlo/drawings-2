@@ -2,19 +2,19 @@
     <div class="login">
         <form v-on:submit="login">
             <div class="form-group">
-                <label for="InputEmail1">Email address</label>
+                <label for="InputUsername">Username</label>
                 <input type="text"
                     class="form-control"
-                    v-model="InputEmail1"
-                    id="InputEmail1"
-                    placeholder="Email">
+                    v-model="InputUsername"
+                    id="InputUsername"
+                    placeholder="Username">
             </div>
             <div class="form-group">
-                <label for="InputPassword1">Password</label>
+                <label for="InputPassword">Password</label>
                 <input type="password"
                     class="form-control"
-                    v-model="InputPassword1"
-                    id="InputPassword1"
+                    v-model="InputPassword"
+                    id="InputPassword"
                     placeholder="Password">
             </div>
 
@@ -28,11 +28,11 @@
 
     @Component
     export default class LoginForm extends Vue {
-        InputEmail1: string = '';
-        InputPassword1: string = '';
+        InputUsername: string = '';
+        InputPassword: string = '';
 
         login() {
-            this.$emit('login', { email: this.InputEmail1, pass: this.InputPassword1});
+            this.$emit('login', { username: this.InputUsername, password: this.InputPassword});
         }
 
 

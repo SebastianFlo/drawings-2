@@ -20,13 +20,12 @@
         methods: {
             login: function(loginData) {
                 console.log('login data', loginData);
-                const body = {
-                    'username': loginData.email,
-	                'password': loginData.pass
-                };
+                const { username, password } = loginData;
 
-                this.$http.post('api/login', body).then((result: any) => {
+                this.$http.post('api/login', { username, password }).then((result: any) => {
                     console.log('Success', result.body);
+
+                    // TODO: Set tokens here
                 });
             },
         },
