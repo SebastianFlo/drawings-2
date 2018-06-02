@@ -26,10 +26,10 @@
 </template>
 
 <script lang="ts">
-    import { Component, Prop, Vue, Emit } from 'vue-property-decorator';
+    import { Component, Vue } from 'vue-property-decorator';
 
     @Component
-    export default class LoginForm extends Vue {
+    export default class LoginFormComponent extends Vue {
         InputUsername: string = '';
         InputPassword: string = '';
 

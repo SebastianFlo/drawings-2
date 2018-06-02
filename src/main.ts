@@ -4,16 +4,12 @@ import VueResource from 'vue-resource';
 
 import router from './router';
 import './registerServiceWorker';
-
-// import Auth from '@/modules/core/authentication/Auth';
+import auth from '@/modules/core/auth';
 
 Vue.use(VueResource);
 Vue.config.productionTip = false;
 
-// export const Authentication = new Auth();
-
-// Check the user's auth status when the app starts
-// Authentication.checkAuth();
+auth.checkAuth();
 
 new Vue({
   router,

@@ -6,7 +6,6 @@ import About from './views/About.vue';
 import Login from './views/Login.vue';
 import Admin from './views/Admin.vue';
 
-// import { Authentication } from '@/main';
 import auth from '@/modules/core/auth';
 
 Vue.use(Router);

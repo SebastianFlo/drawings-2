@@ -11,12 +11,12 @@
 
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
-    import LoginForm from '@/components/LoginForm.vue'; // @ is an alias to /src
+    import LoginFormComponent from '@/components/LoginForm.vue'; // @ is an alias to /src
     import auth from '@/modules/core/auth';
 
     @Component({
         components: {
-            LoginForm,
+            LoginForm: LoginFormComponent,
         },
         methods: {
             login: function(loginData) {
