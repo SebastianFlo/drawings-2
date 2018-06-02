@@ -7,6 +7,7 @@
         </div>
         <router-view/>
 
+    <!--
         <footer id="footer" class="footer">
             <div class="col-md-4 col-md-offset-4">
                 <a target="_blank"
@@ -21,6 +22,7 @@
                 </a>
             </div>
         </footer>
+    -->
     </div>
 </template>
 
@@ -43,7 +45,7 @@
     }
 
     #nav a.router-link-exact-active {
-        color: #42b983;
+        color: #b99142;
     }
 
     .footer {
