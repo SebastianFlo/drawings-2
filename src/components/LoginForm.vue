@@ -5,6 +5,7 @@
                 <label for="InputUsername">Username</label>
                 <input type="text"
                     class="form-control"
+                    required
                     v-model="InputUsername"
                     id="InputUsername"
                     placeholder="Username">
@@ -13,6 +14,7 @@
                 <label for="InputPassword">Password</label>
                 <input type="password"
                     class="form-control"
+                    required
                     v-model="InputPassword"
                     id="InputPassword"
                     placeholder="Password">
@@ -32,6 +34,9 @@
         InputPassword: string = '';
 
         login() {
+            if (!this.InputUsername || !this.InputUsername) {
+                return;
+            }
             this.$emit('login', { username: this.InputUsername, password: this.InputPassword});
         }
 

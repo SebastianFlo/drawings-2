@@ -12,6 +12,7 @@
 <script lang="ts">
     import { Component, Vue } from 'vue-property-decorator';
     import LoginForm from '@/components/LoginForm.vue'; // @ is an alias to /src
+    import auth from '@/modules/core/auth';
 
     @Component({
         components: {
@@ -19,14 +20,13 @@
         },
         methods: {
             login: function(loginData) {
-                console.log('login data', loginData);
-                const { username, password } = loginData;
-
-                this.$http.post('api/login', { username, password }).then((result: any) => {
-                    console.log('Success', result.body);
-
-                    // TODO: Set tokens here
-                });
+                auth.login(this, loginData);
+                // this.$http.post('api/login', { username, password }).then((result) => {
+                //     console.log('Success', result.body);
+                //     const { access_token, refresh_token } = result.body;
+                //     localStorage.setItem('access_token', access_token);
+                //     localStorage.setItem('refresh_token', refresh_token);
+                // });
             },
         },
     })

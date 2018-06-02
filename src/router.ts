@@ -6,7 +6,8 @@ import About from './views/About.vue';
 import Login from './views/Login.vue';
 import Admin from './views/Admin.vue';
 
-import { Authentication } from '@/main';
+// import { Authentication } from '@/main';
+import auth from '@/modules/core/auth';
 
 Vue.use(Router);
 
@@ -37,7 +38,9 @@ export default new Router({
             name: 'admin',
             component: Admin,
             beforeEnter: (to, from, next) => {
-                if (Authentication.isNotAdmin()) {
+                auth.checkAuth();
+                const isLoggedIn = auth.user.authenticated;
+                if (isLoggedIn) {
                     console.log('Granted');
                     next();
                 } else {
