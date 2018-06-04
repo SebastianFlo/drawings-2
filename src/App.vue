@@ -1,9 +1,15 @@
 <template>
     <div id="app">
         <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/drawings">Drawings</router-link> |
-            <router-link to="/about">About</router-link>
+            <router-link to="/" class="mr-2">
+                <wired-button>Home</wired-button>
+            </router-link>
+            <router-link to="/drawings" class="mr-2">
+                <wired-button>Drawings</wired-button>
+            </router-link>
+            <router-link to="/about" class="mr-2">
+                <wired-button>About</wired-button>
+            </router-link>
         </div>
         <router-view/>
 
@@ -45,7 +51,7 @@
     }
 
     #nav a.router-link-exact-active {
-        color: #b99142;
+        color: #c3c3c3;
     }
 
     .footer {
