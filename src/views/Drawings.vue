@@ -34,18 +34,15 @@
             }
         },
         created: function () {
-            // get items here
-            const path = 'https://mir-s3-cdn-cf.behance.net/project_modules/disp/b218c122086061.5630c614c32fa.jpg';
-            // const mockData = [1, 2, 3, 4];
             drawings.getItems(this).then(data => {
-                this.loading = 100;
-                this.drawings = data.items.map(data => ({ id: data, path }))
+                this.loading = 99;
+                this.drawings = data.items;
             })
         },
         mounted: function () {
             const loadingProgress = setInterval(() => {
                 this.loading++;
-                if (this.loading === 100) {
+                if (this.loading > 99) {
                     clearInterval(loadingProgress);
                 }
             }, 10);

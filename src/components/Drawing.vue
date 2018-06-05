@@ -1,11 +1,11 @@
 <template>
     <div class="drawing">
         <div class="image" v-on:click="showModal = true">
-            <img v-bind:src="data.path"
+            <img v-bind:src="data.url"
                 class="img-fluid rounded"
                 alt="Responsive image">
             <div class="overlay">
-                <div class="text">{{ data.id }}</div>
+                <div class="text">{{ data.description }}</div>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
                 role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">{{ data.id }}</h5>
+                        <h5 class="modal-title">{{ data.description }}</h5>
                         <button type="button"
                             class="close"
                             v-on:click="showModal = false"
@@ -28,7 +28,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img v-bind:src="data.path"
+                        <img v-bind:src="data.url"
                             class="img-fluid rounded"
                             alt="Responsive image">
                     </div>
