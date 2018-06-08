@@ -5,12 +5,18 @@
         </div>
         <div class="container">
             <div class="row justify-content-center">
-                <wired-progress v-if="!drawings.length" v-bind:value="loading" min="0" max="100"></wired-progress>
-                <div v-for="(drawing, index) in drawings" class="mb-1" v-bind:class="{ 'mr-1': (index+1) % itemsPerLine !== 0 }">
+                <wired-progress v-if="!stateDrawings.length"
+                    v-bind:value="loading"
+                    min="0"
+                    max="100"></wired-progress>
+                <div v-for="(drawing, index) in stateDrawings"
+                    class="mb-1"
+                    v-bind:class="{ 'mr-1': (index+1) % itemsPerLine !== 0 }">
                     <div class="col">
-                        <Drawing v-bind:data="drawing"/>
+                        <Drawing v-bind:data="drawing" />
                     </div>
-                    <div class="w-100" v-if="(index+1) % itemsPerLine === 0"></div>
+                    <div class="w-100"
+                        v-if="(index+1) % itemsPerLine === 0"></div>
                 </div>
             </div>
         </div>
@@ -18,9 +24,13 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue } from 'vue-property-decorator';
+    import { Component, Vue } from 'vue-property-decorator';
+    import { mapState } from 'vuex';
+
     import DrawingComponent from '@/components/Drawing.vue';
-    import drawings from '@/modules/core/drawings';
+    import drawingsModule from '@/modules/core/drawings';
+    import { Drawing, AppState } from '@/data/types';
+
 
     @Component({
         components: {
@@ -34,10 +44,16 @@
             }
         },
         created: function () {
-            drawings.getItems(this).then(data => {
+            // if (!this.drawings.length) {
+            //     console.log('drawings exist', this.drawings);
+            //     return;
+            // }
+
+            // this.getDrawings();
+            drawingsModule.getItems(this).then(data => {
                 this.loading = 99;
-                this.drawings = data.items;
-            })
+                this.$store.commit('addDrawings', data.items);
+            });
         },
         mounted: function () {
             const loadingProgress = setInterval(() => {
@@ -47,6 +63,18 @@
                 }
             }, 10);
         },
+        methods: {
+            getDrawings: function () {
+                // TODO
+            },
+        },
+        computed: {
+            ...mapState({
+                stateDrawings(state: AppState) {
+                    return state.drawings;
+                },
+            }),
+        },
     })
-    export default class Drawings extends Vue {}
+    export default class Drawings extends Vue { }
 </script>
