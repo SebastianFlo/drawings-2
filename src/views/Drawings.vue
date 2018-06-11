@@ -44,10 +44,10 @@
             }
         },
         created: function () {
-            // if (!this.drawings.length) {
-            //     console.log('drawings exist', this.drawings);
-            //     return;
-            // }
+            if (this.stateDrawings.length) {
+                console.log('drawings exist', this.stateDrawings);
+                return;
+            }
 
             // this.getDrawings();
             drawingsModule.getItems(this).then(data => {
@@ -62,11 +62,6 @@
                     clearInterval(loadingProgress);
                 }
             }, 10);
-        },
-        methods: {
-            getDrawings: function () {
-                // TODO
-            },
         },
         computed: {
             ...mapState({

@@ -1,11 +1,11 @@
 <template>
     <div class="drawing">
         <div class="image" v-on:click="showModal = true">
-            <img v-bind:src="data.url"
+            <img v-bind:src="data ? data.url : ''"
                 class="img-fluid rounded"
                 alt="Responsive image">
             <div class="overlay">
-                <div class="text">{{ data.description }}</div>
+                <div class="text">{{ data ? data.description : '' }}</div>
             </div>
         </div>
 
@@ -19,7 +19,7 @@
                 role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">{{ data.description }}</h5>
+                        <h5 class="modal-title">{{ data ? data.description : '' }}</h5>
                         <button type="button"
                             class="close"
                             v-on:click="showModal = false"
@@ -28,7 +28,7 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <img v-bind:src="data.url"
+                        <img v-bind:src="data ? data.url : ''"
                             class="img-fluid rounded"
                             alt="Responsive image">
                     </div>
@@ -58,13 +58,15 @@
     }
 
     .image .overlay {
+        display: block;
+        max-width: 300px;
+        width: auto;
+        height: auto;
         position: absolute;
         top: 0;
         bottom: 0;
-        left: 0;
+        left: 15px;
         right: 0;
-        height: 100%;
-        width: 100%;
         opacity: 0;
         transition: .5s ease;
         background-color: rgba(93, 93, 93, 0.7);
