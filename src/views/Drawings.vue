@@ -4,19 +4,14 @@
             <!-- <h1>This is an drawings page</h1> -->
         </div>
         <div class="container">
-            <div class="row justify-content-center">
+            <div class="row">
                 <wired-progress v-if="!stateDrawings.length"
                     v-bind:value="loading"
                     min="0"
                     max="100"></wired-progress>
                 <div v-for="(drawing, index) in stateDrawings"
-                    class="mb-1"
-                    v-bind:class="{ 'mr-1': (index+1) % itemsPerLine !== 0 }">
-                    <div class="col">
-                        <Drawing v-bind:data="drawing" />
-                    </div>
-                    <div class="w-100"
-                        v-if="(index+1) % itemsPerLine === 0"></div>
+                    class="mb-1 col-sm-8 col-8 col-lg-4">
+                    <Drawing v-bind:data="drawing" v-bind:edit="loggedIn"/>
                 </div>
             </div>
         </div>
@@ -28,7 +23,8 @@
     import { mapState } from 'vuex';
 
     import DrawingComponent from '@/components/Drawing.vue';
-    import drawingsModule from '@/modules/core/drawings';
+    import drawingsModule from '@/modules/core/drawings'
+    import auth from '@/modules/core/auth';
     import { Drawing, AppState } from '@/data/types';
 
 
@@ -69,6 +65,9 @@
                     return state.drawings;
                 },
             }),
+            loggedIn() {
+                return auth.user.authenticated;
+            }
         },
     })
     export default class Drawings extends Vue { }

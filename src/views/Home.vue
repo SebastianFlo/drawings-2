@@ -3,7 +3,7 @@
         <HelloWorld msg="Welcome to Thea's Page" />
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-md-2">
+                <div class="col-6">
                     <Drawing v-bind:data="latestDrawing"/>
                 </div>
             </div>

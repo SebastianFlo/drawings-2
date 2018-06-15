@@ -1,10 +1,13 @@
 <template>
     <div class="drawing">
-        <div class="image" v-on:click="showModal = true">
+        <div class="image">
             <img v-bind:src="data ? data.url : ''"
                 class="img-fluid rounded"
                 alt="Responsive image">
-            <div class="overlay">
+            <div v-if="edit" class="edit">
+                    <button>Edit</button>
+                </div>
+            <div v-else class="overlay" v-on:click="showModal = true">
                 <div class="text">{{ data ? data.description : '' }}</div>
             </div>
         </div>
@@ -12,7 +15,6 @@
         <!-- Modal -->
         <div class="modal"
             v-bind:style="{ display: showModal ? 'block' : 'none' }"
-            id="exampleModalCenter"
             tabindex="-1"
             role="dialog">
             <div class="modal-dialog modal-dialog-centered"
@@ -44,6 +46,7 @@
     @Component
     export default class DrawingComponent extends Vue {
         @Prop() data;
+        @Prop() edit;
 
         showModal = false;
     }
@@ -52,21 +55,21 @@
 <style scoped>
     .image img {
         display: block;
-        max-width: 300px;
+        /* max-width: 300px; */
         width: auto;
         height: auto;
     }
 
     .image .overlay {
         display: block;
-        max-width: 300px;
+        /* max-width: 300px; */
         width: auto;
         height: auto;
         position: absolute;
         top: 0;
         bottom: 0;
         left: 15px;
-        right: 0;
+        right: 15px;
         opacity: 0;
         transition: .5s ease;
         background-color: rgba(93, 93, 93, 0.7);
@@ -80,6 +83,13 @@
         left: 50%;
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
+        text-align: center;
+    }
+
+    .image .edit {
+        position: absolute;
+        top: 5%;
+        right: 5%;
         text-align: center;
     }
 

@@ -12,7 +12,7 @@ export default {
     },
 
     login(context, creds) {
-        context.$http.post(LOGIN_URL, creds)
+        return context.$http.post(LOGIN_URL, creds)
             .then(({ body }) => {
                 if (!body.access_token) {
                     console.error('No access Token');

@@ -21,12 +21,6 @@
         methods: {
             login: function(loginData) {
                 auth.login(this, loginData);
-                // this.$http.post('api/login', { username, password }).then((result) => {
-                //     console.log('Success', result.body);
-                //     const { access_token, refresh_token } = result.body;
-                //     localStorage.setItem('access_token', access_token);
-                //     localStorage.setItem('refresh_token', refresh_token);
-                // });
             },
         },
     })
