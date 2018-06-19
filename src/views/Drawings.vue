@@ -11,7 +11,7 @@
                     max="100"></wired-progress>
                 <div v-for="(drawing, index) in stateDrawings"
                     class="mb-1 col-sm-8 col-8 col-lg-4">
-                    <Drawing v-bind:data="drawing" v-bind:edit="loggedIn"/>
+                    <Drawing v-bind:data="drawing" v-bind:editable="loggedIn"/>
                 </div>
             </div>
         </div>
@@ -66,7 +66,10 @@
                 },
             }),
             loggedIn() {
-                return auth.user.authenticated;
+                console.log('user', auth.user);
+                if (auth) {
+                    return auth.user.authenticated;
+                }
             }
         },
     })

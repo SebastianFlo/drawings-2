@@ -1,16 +1,6 @@
 <template>
     <div id="app">
-        <div id="nav">
-            <router-link to="/" class="mr-2">
-                <wired-button>Home</wired-button>
-            </router-link>
-            <router-link to="/drawings" class="mr-2">
-                <wired-button>Drawings</wired-button>
-            </router-link>
-            <router-link to="/about" class="mr-2">
-                <wired-button>About</wired-button>
-            </router-link>
-        </div>
+        <Navigation/>
         <router-view/>
 
     <!--

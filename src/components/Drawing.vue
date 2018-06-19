@@ -4,7 +4,7 @@
             <img v-bind:src="data ? data.url : ''"
                 class="img-fluid rounded"
                 alt="Responsive image">
-            <div v-if="edit" class="edit">
+            <div v-if="editable" class="edit">
                     <button>Edit</button>
                 </div>
             <div v-else class="overlay" v-on:click="showModal = true">
@@ -46,7 +46,7 @@
     @Component
     export default class DrawingComponent extends Vue {
         @Prop() data;
-        @Prop() edit;
+        @Prop() editable;
 
         showModal = false;
     }

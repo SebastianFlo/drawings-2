@@ -27,6 +27,7 @@ export default {
 
             }, (err) => {
                 console.error(err);
+                this.resetCredentials();
             });
     },
 
@@ -36,11 +37,11 @@ export default {
                 headers: this.getAuthHeader(),
             })
             .then(({ body }) => {
-                localStorage.removeItem('access_token');
-                this.user.authenticated = false;
+                this.resetCredentials();
                 router.push('/login');
             }, (err) => {
                 console.error(err);
+                this.resetCredentials();
             });
     },
 
@@ -58,4 +59,9 @@ export default {
             Authorization: 'Bearer ' + localStorage.getItem('access_token'),
         };
     },
+
+    resetCredentials() {
+        localStorage.removeItem('access_token');
+        this.user.authenticated = false;
+    }
 };
