@@ -43,12 +43,21 @@
 <script lang="ts">
     import { Component, Prop, Vue } from 'vue-property-decorator';
 
-    @Component
+    @Component({
+        props: ['data', 'editable']
+    })
     export default class DrawingComponent extends Vue {
         @Prop() data;
         @Prop() editable;
-
+        isEditable = this.editable;
         showModal = false;
+
+        // computed
+        get computeEditable () {
+            console.log('editable', this.isEditable);
+            return 'computed ' + this.isEditable;
+        }
+
     }
 </script>
 
@@ -91,9 +100,18 @@
         top: 5%;
         right: 5%;
         text-align: center;
+        opacity: 0;
+    }
+
+    .image button {
+        cursor: pointer;
     }
 
     .image:hover .overlay {
+        opacity: 1;
+    }
+
+    .image:hover .edit {
         opacity: 1;
     }
 </style>

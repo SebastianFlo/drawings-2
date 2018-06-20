@@ -1,8 +1,8 @@
 <template>
     <div class="login">
         <h1>This is the login page</h1>
-        <div class="row">
-            <div class="col-md-2 col-md-offset-5">
+        <div class="row justify-content-md-center">
+            <div class="col-md-2">
                 <LoginForm v-on:login="login"></LoginForm>
             </div>
         </div>

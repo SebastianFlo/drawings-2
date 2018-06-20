@@ -3,7 +3,7 @@
         <Navigation/>
         <router-view/>
 
-    <!--
+        <!--
         <footer id="footer" class="footer">
             <div class="col-md-4 col-md-offset-4">
                 <a target="_blank"
@@ -21,6 +21,17 @@
     -->
     </div>
 </template>
+
+<script>
+    import NavigationComponent from '@/components/Navigation.vue';
+
+    export default {
+        name: 'app',
+        components: {
+            'Navigation': NavigationComponent
+        }
+    }
+</script>
 
 <style>
     #app {

@@ -30,8 +30,5 @@ new Vue({
         },
     },
   },
-  components: {
-      Navigation,
-  },
   render: (h) => h(App),
 }).$mount('#app');
