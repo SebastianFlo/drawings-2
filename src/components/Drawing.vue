@@ -7,8 +7,9 @@
             <div v-if="editable" class="edit">
                     <button>Edit</button>
                 </div>
-            <div v-else class="overlay" v-on:click="showModal = true">
-                <div class="text">{{ data ? data.description : '' }}</div>
+            <div v-else class="overlay" v-on:click="disable ? undefined : showModal = true">
+                <div class="text">{{ data ? data.description : '' }} {{ disable }} Test</div>
+
             </div>
         </div>
 
@@ -49,12 +50,15 @@
     export default class DrawingComponent extends Vue {
         @Prop() data;
         @Prop() editable;
+        @Prop() disable;
         isEditable = this.editable;
+        zoomDisabled = this.disable;
         showModal = false;
 
         // computed
         get computeEditable () {
             console.log('editable', this.isEditable);
+            console.log('zoomDisabled', this.disable);
             return 'computed ' + this.isEditable;
         }
 

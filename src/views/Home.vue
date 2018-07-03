@@ -4,7 +4,7 @@
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-6">
-                    <Drawing v-bind:data="latestDrawing"/>
+                    <Drawing v-bind:disable="true" v-bind:data="latestDrawing"/>
                 </div>
             </div>
         </div>
